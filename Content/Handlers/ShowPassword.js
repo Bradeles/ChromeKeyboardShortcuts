@@ -36,7 +36,6 @@ function toggleInputFields() {
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "toggleInputFields") {
-        console.log("Request to reveal password received");
         toggleInputFields();
     }
 });

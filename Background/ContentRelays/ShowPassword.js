@@ -6,10 +6,6 @@ export function RelayShowPassword() {
                     chrome.tabs.sendMessage(tabs[0].id, { action: "toggleInputFields" });
                 }
             });
-    
-            sendResponse({ status: "Message dispatched!" });
         }
-    
-        return true; // Ensures async operations don't close the response channel prematurely
     });
 }
