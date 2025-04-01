@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "KeyboardShortcuts",
+  "version": "1.0.0",
+  "permissions": ["tabs"],
+  "background": {
+    "service_worker": "Background/BackgroundServiceRegistration.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": ["Content/KeydownEventListener.js"],
+      "matches": ["*://*/*"]
+    },
+    {
+      "js": ["Content/Handlers/ShowPassword.js"],
+      "matches": ["*://*/*"]
+    }    
+  ]
+}
