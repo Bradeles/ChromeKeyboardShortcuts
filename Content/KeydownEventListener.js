@@ -1,11 +1,11 @@
 const keydownEvent = "keydown";
 
 function isDuplicateTabHotkeyPressed(event) {
-    return event.ctrlKey && event.shiftKey && (event.key === 'k' || event.key === 'K');
+    return event.ctrlKey && event.shiftKey && isKeyPressed(event, "k");
 }
 
 function isShowPasswordHotkeyPressed(event) {
-    return event.ctrlKey && event.altKey && (event.key === 'p' || event.key == 'P');
+    return event.ctrlKey && event.altKey && isKeyPressed(event, "p");
 }
 
 document.addEventListener(keydownEvent, function(event) {
@@ -20,3 +20,7 @@ document.addEventListener(keydownEvent, function(event) {
         chrome.runtime.sendMessage({ action: "duplicateTab" });
     };
 });
+
+function isKeyPressed(event, key) {
+    return event.key.toUpperCase() == key.toUpperCase();
+}
